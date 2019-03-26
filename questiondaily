@@ -1,19 +1,73 @@
-1/ Ý nghĩa của on_delete = models.CASCADE
+1/ Foreignkey in model django
 
-<https://www.postgresql.org/docs/current/sql-createtable.html>
-NO ACTION
-Produce an error indicating that the deletion or update would create a foreign key constraint violation. If the constraint is deferred, this error will be produced at constraint check time if there still exist any referencing rows. This is the default action.
+calss ForeignKey(to, on_delete, **option)
 
-RESTRICT
-Produce an error indicating that the deletion or update would create a foreign key constraint violation. This is the same as NO ACTION except that the check is not deferrable.
+ForeignKey.ondelete
+CASCADE[source]¶
+Cascade deletes. Django emulates the behavior of the SQL constraint ON DELETE CASCADE 
+and also deletes the object containing the ForeignKey.
 
-CASCADE
-Delete any rows referencing the deleted row, or update the values of the referencing column(s) to the new values of the referenced columns, respectively.
+Model.delete() isn’t called on related models, 
+but the pre_delete and post_delete signals are sent for all deleted objects.
 
-SET NULL
-Set the referencing column(s) to null.
+PROTECT[source]¶
+Prevent deletion of the referenced object by raising ProtectedError,
+a subclass of django.db.IntegrityError.
 
-SET DEFAULT
-Set the referencing column(s) to their default values. (There must be a row in the referenced table matching the default values, if they are not null, or the operation will fail.)
+SET_NULL[source]¶
+Set the ForeignKey null; this is only possible if null is True.
 
-If the referenced column(s) are changed frequently, it might be wise to add an index to the referencing column(s) so that referential actions associated with the foreign key constraint can be performed more efficiently.
+SET_DEFAULT[source]¶
+Set the ForeignKey to its default value; a default for the ForeignKey must be set.
+
+SET()[source]¶
+Set the ForeignKey to the value passed to SET(), or if a callable is passed in, 
+the result of calling it. In most cases, passing a callable will be necessary 
+to avoid executing queries at the time your models.py is imported:
+
+DO_NOTHING[source]¶
+Take no action. If your database backend enforces referential integrity, 
+this will cause an IntegrityError unless you manually add an SQL ON DELETE constraint to the database field.
+
+ForeignKey.limit_choices_to
+Set a limit avaiable choices for this field when this field is rensering using a Model Form
+
+  staff_member = models.ForeignKey(
+    User,
+    on_delete=models.CASCADE,
+    limit_choices_to={'is_staff': True},
+)
+
+ForeignKey.related_name
+The name to use for the relation from the related object back to this one.
+You must defining relations on abstract models and when you do some specials syntax is avaiable
+
+
+  user = models.ForeignKey(
+    User,
+    on_delete=models.CASCADE,
+    related_name='+',
+)
+
+    Following relationships “backward”
+    
+        If a model has a ForeignKey, instances of the foreign-key model will have access to a Manager that returns all instances of the first model. By default, this Manager is named FOO_set, where FOO is the source model name, lowercased. This Manager returns QuerySets, which can be filtered and manipulated as described in the “Retrieving objects” section above.
+
+        Example:
+
+        >>> b = Blog.objects.get(id=1)
+        >>> b.entry_set.all() # Returns all Entry objects related to Blog.
+
+        # b.entry_set is a Manager that returns QuerySets.
+        >>> b.entry_set.filter(headline__contains='Lennon')
+        >>> b.entry_set.count()
+        You can override the FOO_set name by setting the related_name parameter in the ForeignKey definition. For example, if the Entry model was altered to blog = ForeignKey(Blog, on_delete=models.CASCADE, related_name='entries'), the above example code would look like this:
+
+        >>> b = Blog.objects.get(id=1)
+        >>> b.entries.all() # Returns all Entry objects related to Blog.
+
+        # b.entries is a Manager that returns QuerySets.
+        >>> b.entries.filter(headline__contains='Lennon')
+        >>> b.entries.count()
+
+
