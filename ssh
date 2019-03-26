@@ -1,0 +1,12 @@
+Secure Socket Shell
+
+Terminal
+
+ssh root@123.45.68.76 -p 2222
+
+login qua ssh vao may 12.45.68.79 qua cong 222 voi account root
+
+install
+
+sudo apt install openssh-client
+sudo apt install openssh-server
