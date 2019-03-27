@@ -1,0 +1,24 @@
+When use 'name' in url due to this issues:
+
+raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'ingredientlist' with arguments '('Vitamin C',)' not found. 1 pattern(s) tried: ['menu\\/ingredientlist\\/$']
+
+Stackover:
+
+This error saying that Django cannot find a matching url parrtern for the url you providing any of your installed app's urls
+
+To starting debugging you need to start by disectiong the error messing given to you 
+
+* NoReverseMatching at /my_url/
+This is  the url is currently being rendered 
+it is this url that your application is currently trying to access but it contains a url that cannot be matched
+* Reverse for 'my_url_name'
+This is the name of the url that it cannot find
+* with arguments '()" and
+These are the non-keyword arguments its providing to the url
+* Keyword arguments '{}' not found
+These are the keyword arguments its providing to the url
+* n pattern(s) tries:[]
+These are the patterns that it was able to finish in your urls.py files that it tried to match against
+
+
