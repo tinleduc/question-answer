@@ -36,7 +36,20 @@ At the end of the day, of course, it comes down to getting stuff done.
 And, regardless of how things are named, Django gets stuff done in a way that’s most logical to us.
 
 
-CBV - giúp mở rộng và tái sử dụng code. Tính thừa kế
+CBV 
+    # urls.py
+    ...
+    from . import views
+
+    urlconfig = [
+        # the function-based view is added as the second param
+        url(r'^function/$', views.simple_function_based_view),
+        # the as_view method is called on the class-based view and 
+        # the result is the value of the second param
+        url(r'^class/$', views.SimpleClassBasedView.as_view()),
+    ]
+
+- giúp mở rộng và tái sử dụng code. Tính thừa kế
 Thay vì code toàn bộ view ta chỉ cần thừa kế từ một View khác và thêm một vài chỉnh sửa là đủ.
 Ngoài ra Django đã xây dựng rất nhiều View classs cho những tác vụ thông thường của một ứng dụng Web
 Tham khảo trên ccbv.co.uk
@@ -58,6 +71,15 @@ Những class được xây dựng sẵn là trong suốt với người dùng n
 Các xử lý phức tạp cần ghì đè phương thức hoặc sử dụng các decorators 
 
 FBV - Ta code tất cả những gì ta muốn 
+    # views.py
+    from django.views import View
+
+    class SimpleClassBasedView(View):
+        def get(self, request):
+            ...  # code to process a GET request
+
+        def post(self, request):
+            ...  # code to process a POST request
 
 Function based view sẽ dễ dàng hơn với class based view ở:
 - Cần thao tác với nhiều model một lúc. Rõ ràng class Django thiết kế không phải cho trường hợp này. 
