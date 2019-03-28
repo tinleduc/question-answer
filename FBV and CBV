@@ -1,0 +1,94 @@
+Function based view and class based view
+
+MVC - Model - View - Control
+Model - present for DB
+View - present for UI
+Control - connect two above
+
+MVT - Model - View - Template
+
+Model - present for DB
+Template - present for UI
+View - Connect two above
+
+MVC or MVT
+
+" The stardard names are debatable. In our interpretation of MVC, 
+the view describes the data that gets presented to the user 
+It not necessarily how the data looks but which data is presented
+The view describes which data you see, not how you see it 
+Its subtle distinction
+
+So in our case, a view is the Python callback function for a partcular URL,
+because the callback function describes which data is presented
+
+Furthermore, it's sensible to separate content drom presentation - which is where templates come in 
+In Django a view describes which data is presented bu a view  normally delegates a template
+which describes how the data is presented
+
+Where does the controller git in then? In Django's case it's probably the framework itself:
+the machinery that sends a request to the appropriate view, according to the Django URL configuration.
+
+If you’re hungry for acronyms, you might say that Django is a
+“MTV” framework – that is, “model”, “template”, and “view.” That breakdown makes much more sense.
+
+At the end of the day, of course, it comes down to getting stuff done. 
+And, regardless of how things are named, Django gets stuff done in a way that’s most logical to us.
+
+
+CBV - giúp mở rộng và tái sử dụng code. Tính thừa kế
+Thay vì code toàn bộ view ta chỉ cần thừa kế từ một View khác và thêm một vài chỉnh sửa là đủ.
+Ngoài ra Django đã xây dựng rất nhiều View classs cho những tác vụ thông thường của một ứng dụng Web
+Tham khảo trên ccbv.co.uk
+CBV thực ra cũng là FBV , khi chúng ta thêm URL chúng ta sử dụng phương thức as_view() nó sẽ trả về một function
+View more:
+https://github.com/django/django/blob/1.10.6/django/views/generic/base.py#L28
+
+Ưu điểm:
+Dễ mở rộng, tái sử dụng code
+Có thể lập trình hướng đối tượng dễ dàng
+Xử lý truy vần HTTP riêng ứng với từng phương thức GET POST
+Django xây dựng sẵn nhiều class cho các tác vụ thông thường giảm thời gian code đáng kể
+
+Nhược điểm
+
+KHó để đọc code do kế thừa --> it code
+Luồng dữ liệu không tường minh --> kế thừa nên nhiều thông tin không được hiển thị trên code
+Những class được xây dựng sẵn là trong suốt với người dùng nên rất khó debug
+Các xử lý phức tạp cần ghì đè phương thức hoặc sử dụng các decorators 
+
+FBV - Ta code tất cả những gì ta muốn 
+
+Function based view sẽ dễ dàng hơn với class based view ở:
+- Cần thao tác với nhiều model một lúc. Rõ ràng class Django thiết kế không phải cho trường hợp này. 
+Cố sử dụng class-based View với các loại mixin khiến chúng ta mất  nhiều thời gian
+
+- Cùng 1 view nhưng phải xử lý nhiều thao tác một lúc
+Ứng dụng web do cùng một trang cần thể hiện nhiều thông tin cùng với các nút bấm nhanh cho người dùng dễ thao tác.
+
+- Edit tại chỗ. Ở đầy thường là sẽ phải sử dụng một số kỹ thuật như AJAX để gửi thông tin người dùng nhập vào
+
+Ưu điểm:
+
+Dễ dàng cài đặt cần gì code nấy
+Code dễ đọc 
+Dữ liệu tường minh
+Sử dụng decorators đơn giản
+
+Nhược điểm
+Khó mở rộng và tái sử dụng code
+Tự tay xử lý riêng cho các phương thức HTTP khác nhau
+
+
+
+
+
+
+
+
+
+
+
+
+
+
