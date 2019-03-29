@@ -1,0 +1,79 @@
+Request and Response objects
+
+* Overview:
+
+Django user request and response to pass state through the system
+When a page is requested, Django create an HttpRequest object that contains metadata about the request
+Then Django loads the appropriate view, passing the Httprequest as the first argument to the view fuction
+Each view is reponsible for returning an HttpReponse object
+
+* HttpRequest objects
+Source: https://docs.djangoproject.com/en/2.1/_modules/django/http/request/#HttpRequest
+   Attributes
+   
+   HttpRequest.schema
+   HttpRequest.body
+   HttpRequest.path
+   HttpRequest.path_info
+   HttpRequest.method
+   HttpRequest.encoding
+   HttpRequest.content_type
+   HttpRequest.content_params
+   HttpRequest.GET
+   HttpRequest.POST
+   HttpRequest.COOKIES
+   HttpRequest.FILES
+   HttpRequest.META
+   HttpRequest.resolver_match
+   
+   Attributes set by applcation
+   HttpRequest.current_app
+   HttpRequest.urlconf
+  
+   
+   Attributes set by middleware
+   HttpRequest.session
+   HttpRequest.site
+   HttpRequest.user
+   
+   Method
+   HttpRequest.get_host
+   HttpRequest.get_port
+   HttpRequest.get_full_path
+   HttpRequest.get_full_path_info
+   HttpRequest.build_absolute_uri
+   HttpRequest.get_sign_cookie
+   HttpRequest.is_secure
+   HttpRequest.is_ajax
+   HttpRequest.read
+   HttpRequest.readline
+   HttpRequest.readlines
+   HttpRequest.__iter__()
+   
+   
+   QueryDict Objects
+   
+   Class QueryDict
+   
+   
+   
+   
+   
+* HttpResponse objects
+
+  are your responsibility
+  each view is responsibility for instantiating population and return an HTTPResponse
+  Usage:
+  
+  Passing strings
+  
+  Passing Iterators
+  
+  Setting header fields
+  
+  
+
+
+HttpResponseRedirect
+
+reverse
