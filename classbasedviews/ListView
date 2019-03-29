@@ -1,0 +1,31 @@
+ListView
+
+class django.views.generic.list.ListView
+
+A page representing a list of objects
+
+While this view is executing self.object_list will contain the list of objects 
+(usually but not necessary a queryset) that the view is operating upon
+
+Ancestors (MRO)  - Method Resolution Order
+
+This view inherits methods and attributes from the following views:
+
+django.views.generic.list.list.MultipleObjectTemplateResponseMixin
+django.views.generic.base.TemplateResponseMixin
+django.views.generic.list.BaselistView
+django.views.generic.list.MultipleObjectMixin
+django.views.generic.base.View
+
+Method Flowchart
+
+dispatch()
+http_method_not_allowed()
+get_template_name()
+get_queryset()
+get_context_object_name()
+get_context_data()
+get()
+rendet_to_response()
+
+
