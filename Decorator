@@ -1,0 +1,12 @@
+Decorator
+
+http://python.astrotech.io/design-patterns/gang-of-four.html
+
+Là một mẫu thiết kế (Design Pattern) thường được dùng để thay đổi hành vi
+Chứ năng của hàm function hoặc class mà không thay đổi code của hàm hoặc lớp
+
+Decorator dùng để làm gì
+
+Cho phép tái sử dụng code
+Mở rộng các hàm hoặc lớp mà không cần thay đổi code có sẵn
+
