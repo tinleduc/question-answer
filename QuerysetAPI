@@ -1,8 +1,8 @@
-QuerySet API reference
-  When QuerySet are evaluated 
-    Pickling QuerySets
-  QuerySet API
-    Methods that return new QuerySets
+# QuerySet API reference
+  ## When QuerySet are evaluated 
+    ### Pickling QuerySets
+  ## QuerySet API
+    ### Methods that return new QuerySets
       filter()
       exclude()
       annotate()
@@ -25,10 +25,10 @@ QuerySet API reference
       using()
       select_for_update()
       raw()
-    Operators that return new QuerySets
+    ### Operators that return new QuerySets
       AND(&)
       OR(|)
-    Methods that do not return QuerySets
+    ### Methods that do not return QuerySets
       get()
       create()
       get_or_create()
@@ -49,7 +49,7 @@ QuerySet API reference
       delete()
       as_manager()
       explain()
-    Field lookups
+    ### Field lookups
       exact
       iexact
       contains
@@ -78,7 +78,7 @@ QuerySet API reference
       isnull
       regex
       iregex
-    Aggregation fuctions
+    ### Aggregation fuctions
       expressions
       output_field
       filter
@@ -90,7 +90,7 @@ QuerySet API reference
       StdDev
       Sum
       Variance
-    Query-related tools
+    ### Query-related tools
       Q()Objects 
       Prefetch() objects
       Prefetch_related_objects()
