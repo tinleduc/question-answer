@@ -1,0 +1,55 @@
+# Django’s comment framework has been deprecated and is no longer supported. 
+Most users will be better served with a custom solution, or a hosted product like Disqus.
+The code formerly known as django.contrib.comments is still available in an external repository.
+
+Quick start guide
+- Install the comments frameworks by add "django.contrib.comments' to INSTALLED_APPS
+- run migrate to create the comment tables
+- Add the comment app's URLs to yours projects 
+- Use the comment template tags
+
+Comments template tags
+  We interact with the comment system through a series of template tags
+  Like all custom template tag libraries, we need to load the custom tags before we use them
+  
+  {% load comments %}
+
+  Specifying which object comments are attached to
+    Django's comments are all "attached" to some parent object. This can be any instance of a Django model. 
+    Each of the tags below gives you a couple of different ways you can specify which objects to attach to:
+      1/ Refer to the object directly
+      
+      {% get_comment_count for entry as comment_count %}
+      
+      2/ Refer to the object by content-type and objet id.
+      
+      {% get_comment_count for blog.entry as comment_count %}
+
+  Displaying comments
+
+    Quickly rendering a comment list
+
+    Rendering a custome comment list
+
+  Linking to comments
+
+  Counting comments
+
+  Display the comment post form
+
+    Quickly rendering the comment form
+
+    Rendering a custom comment form
+
+    Getting the comment form target
+
+    Redirecting after the comment post
+
+    Providing a comment form for authenticated users
+
+  Notes on the comment form
+
+Configuration 
+
+More information
+  
