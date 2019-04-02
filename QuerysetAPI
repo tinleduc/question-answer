@@ -1,0 +1,102 @@
+QuerySet API reference
+  When QuerySet are evaluated 
+    Pickling QuerySets
+  QuerySet API
+    Methods that return new QuerySets
+      filter()
+      exclude()
+      annotate()
+      order_by()
+      reverse()
+      distinct()
+      values()
+      dates()
+      datetimes()
+      none()
+      all()
+      union()
+      intersection()
+      difference()
+      select_related()
+      prefetch_related()
+      extra()
+      defer()
+      only()
+      using()
+      select_for_update()
+      raw()
+    Operators that return new QuerySets
+      AND(&)
+      OR(|)
+    Methods that do not return QuerySets
+      get()
+      create()
+      get_or_create()
+      update_or_create()
+      bulk_create()
+      count()
+      in_bulk()
+      iterator()
+        With server-side cursor
+        Without server-side cursor
+      lastest()
+      earliest()
+      first()
+      last()
+      aggregate()
+      exits()
+      update()
+      delete()
+      as_manager()
+      explain()
+    Field lookups
+      exact
+      iexact
+      contains
+      icontains
+      in
+      gt
+      gte
+      lt
+      lte
+      startwith
+      isstartwith
+      endswith
+      iendswith
+      range
+      date
+      year
+      month
+      day
+      week
+      week_day
+      quater
+      time
+      hour
+      minute
+      second
+      isnull
+      regex
+      iregex
+    Aggregation fuctions
+      expressions
+      output_field
+      filter
+      **extra
+      Avg
+      Count
+      Max
+      Min
+      StdDev
+      Sum
+      Variance
+    Query-related tools
+      Q()Objects 
+      Prefetch() objects
+      Prefetch_related_objects()
+      FilterRelated()objects
+      
+      
+      
+      
+      
