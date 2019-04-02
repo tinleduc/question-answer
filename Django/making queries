@@ -1,0 +1,79 @@
+Once you've created your data models, Django automatically gives you a database-abstraction API that let you create,
+retrieve update and delete object
+This documents explains how to use this API
+Throughout this guide we'll refer to the following models which comprise a Weblog application:
+
+from django.db import models
+
+class Blog(models.Model):
+  name = models.CharField(max_length=100)
+  tagline = models.TextField()
+  
+  def __str__(self):
+    return self.name
+
+class Author(models.Model):
+  name = models.CharField(max_length=200)
+  email = models.EmailField()
+  
+  def __str__(self):
+    return self.name
+    
+class Entry(models.Model):
+  blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+  headline = models.CharField(max_length=255)
+  body_text = models.TextField()
+  pub_date = models.DateField()
+  mod_date = models.DateField()
+  authos = models.ManuToManyField(Author)
+  n_comments = models.IntegerField()
+  n+pingbacks = models.IntegerField()
+  rating = model.Integer()
+  
+  def __str__(self):
+  return self.headline
+  
+
+Creating objects
+
+  To present database-table in python objects Django uses an intuitive sytem: Model class represents a database table
+  and an instance of that class represents a particular record in the database table
+  Making queries
+  
+Saving changes to objects
+    Saving ForeignKey and ManyToManyFields fields
+Retrieving objects 
+    Retrieving all objects
+    Retrieving specific objects with filters
+      Chaining filters
+      Filtered QuerySets are unique
+      QuerySet are lazy
+    Retrieving a single object with get
+    Other QuerySet methods
+    Limiting QuerySets
+    Field lookups
+    Lookups that span relationships
+        Spanning multi-valued relationships
+    Filters can reference fields on the model
+    The pk lookup shortcut
+    Escaping percent signs and underscores in LIKE statements
+    Caching and QuerySets 
+    When QurerySet are not cached
+  Complex lookups with Q objects
+  Comparing objects
+  Deleting objects
+  Copying model instances
+  Updating multiple objects at once
+  Related Objects 
+      One to many relationship    
+          Forward
+          Following realationships backward
+          Using a custom reverse manager
+          Additional methods to handle related objects
+      Many to many relationships
+      One to one relationships
+      How are the backward relationships possible
+      Queries over related objects
+  Falling back to raw SQL
+  
+  
