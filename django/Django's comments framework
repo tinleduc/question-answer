@@ -26,22 +26,62 @@ Comments template tags
       {% get_comment_count for blog.entry as comment_count %}
 
   Displaying comments
+    To display a list of comments you can use the tenplate tags
+      render_comment_list or get_comment_list
 
     Quickly rendering a comment list
+      The easiest way to display a list of comments for some object is by using render_comment_list
+      
+      {% render_comment_list for [object] %}
 
     Rendering a custome comment list
+    
+      {% get_comment_list for [object] as [varname] %}
 
   Linking to comments
+    To provide a permalink to aspecific comment use get_comment_permalink
+    
+    {% get_comment_permalink comment_job [format_string] %}
+    
+    {% get_comment_permalink comment "#c%(id)s-by-%(user_name)s" %}
 
   Counting comments
+    {% get_comment_count for [object] as [varname] %}
 
   Display the comment post form
+    To show the form that users will use to post a comment you can use render_comment_form or get_comment_form
 
     Quickly rendering the comment form
+    render_comment_form 
+    {% render_comment_count for [object] %}
 
     Rendering a custom comment form
-
+      If you want more control over the look and feel of the comment form,
+      you may use get_commet_form to get a form object that you can use in the template:
+      
+        {% get_comment_form for [object] as [varname] %}
+        
+        A complete form might look like:
+        
+          {% get_comment_form for event as form %}
+          <table>
+            <form action="{% comment_form_target %}" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <tr>
+                <td colspan="2">
+                  <input type="submit" name="submit" value="Post">
+                  <input type="submit" name="preview" value="Preview">
+                </td>
+              </tr>
+            </form>
+          </table>
+          
     Getting the comment form target
+      You may have noticed that the above example uses another template tag comment_form_target
+      to actually get the action attribute of the form 
+      This will always return the correct URL that comments should be posted to 
+      
 
     Redirecting after the comment post
 
