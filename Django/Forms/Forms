@@ -1,0 +1,28 @@
+Working with forms
+ HTML forms
+  Get and Post
+ Django's role in forms
+ Forms in Django
+   The Django Form class
+   Instantiating, processing, and rendering forms 
+ Building a form 
+   The work that needs to be done 
+   Building a forms in Django 
+     The Form class 
+     The View 
+     The Template 
+ More about Django Form classes 
+   BOund and unbound form instances 
+   More on fields
+     Widgets 
+     Field Data 
+ Working with form templates 
+   Form rendering options 
+   Rendering fields manually
+    Rendering form error messages 
+   Looping over the forms fields
+    Looping over hidden and visible fields 
+   Reusable form templates
+ 
+Further topics
+
