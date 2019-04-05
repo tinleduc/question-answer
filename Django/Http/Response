@@ -1,0 +1,74 @@
+Class HttpResponse
+
+Incontrast to HttpRequest objects which are created automatically by Django 
+HttpResponse objects are your responsibility
+
+Usage
+
+Passing strings
+
+Typical usage is to pass contents of the page, as a string
+to the HttpResponse constructor
+
+   from django.http import HttpResponse
+   response = HttpResponse()
+   
+ Passing iterators
+ 
+ Setting header fields
+ 
+ Telling the browser to treat the response as a file attachment
+ 
+ Attributes
+ 
+ HttpResponse.content
+ 
+ 
+ HttpResponse.charset
+ 
+ HttpResponse.status_code
+ 
+ HttpResponse.reason_phrase
+ 
+ HttpResponse.streaming
+ 
+ HttpResponse.close
+ 
+ Methods
+ HttpResponse.__init()
+ 
+   HttpResponse__setitem__()
+   HttpResponse.__delitem__()
+   HttpResponse.__getitem__()
+   HttpResponse.has_header()
+   HttpResponse.setdefault()
+   HttpResponse.set_cookie()
+   HttpResponse.set_signed_cookie()
+   HttpResponse.delete_cookie()
+   HttpResponse.write()
+   HttpResponse.flush()
+   HttpResponse.tell()
+   HttpResponse.getvalue()
+   HttpResponse.readable()
+   HttpResponse.seekable()
+   HttpResponse.writable()
+   HttpResponse.writeline()
+ 
+ HttpResponse subclasses
+  class HttpResponseRedirect
+  class HttpResponsePermanentRedirect
+  class HttpResponseNotModified
+  class HttpResponseBadRequest
+  class HttpResponseNotFound
+  class HttpResponseForbidden
+  class HttpResponseNotAllowed
+  class HttpResponseGone
+  class HttpResponseServerError
+  
+
+  
+  
+ 
+ 
+ 
+ 
