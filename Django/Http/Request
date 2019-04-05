@@ -1,0 +1,113 @@
+Request
+
+HttpRequest objects
+
+  Class HttpRequest
+
+    Attributes
+    
+    HttpRequest.scheme 
+    http or https
+    
+    HttpRequest.body 
+    The raw HttpRequest body as a byte string.
+    This us useful for processing data in difference ways than conventional HTML forms
+    You can also read from an HttpRequest usinng a file like interface
+    HttpRequest.read()
+    
+    HttpRequest.path
+    full path to the requested page not including the schema or domain
+    
+    HttpRequest.path_info
+    Under some Web server configurattions the portion of the URL
+    after the host name is plit up into a script prefix portion and a path info portion
+    
+    
+    HttpRequest.method
+    Astring representing the HTTP method used in the request
+    This is guaranteed to be uppercase
+    
+    HttpRequest.encoding
+    A string representing the current encoding used to decode form submission data
+    You can write to this attribut to change the encoding user when acessing the form data
+    
+    HttpRequest.content_type
+    A string representing the MIME type of the request
+    parsed from the CONTENT_TYPE header
+    
+    HttpRequest.params
+    A dictionary of key/value parameters included in the CONTENT_TYPE
+    
+    HttpRequest.GET
+    A dictionary-lie object containing all given HTTP GET parameters
+    
+    HttpRequest.POST
+    
+    HttpRequest.FILE
+    
+    HttpRequest.META
+    A dictionary containing all avaiable HTTP headers.
+    Avaiable headers depend on the client and server but here are some examples
+      CONTENT_LENGTH
+      CONTENT_TYPE
+      HTTP_ACCEPT
+      HTTP_ACCEPT_LANGUAGE
+      HTTP_HOST
+      HTTP_REFERDER
+      HTTP_USER_AGENT
+      QUERY_STRING
+      REMOTE_ADDR
+      REMOTE_USER
+      REMOTE_HOST
+      REQUEST_METHOD
+      SERVER_NAME
+      SERVER_PORT
+    Attribures set by application code
+    
+    HttpRequest.current_app
+    The url template tag will use its value as the current_app argument to reverse()
+    
+    HttpRequest.urlconf
+    This will be used as the root URL for the current request overriding the ROOT_URLCONF
+    setting
+    
+    Attributes set by middleware
+    
+    HttpRequest.session
+    
+    HttpRequest.site
+    
+    HttpRequest.use
+    
+  Methods
+    HttpRequest.get_host()
+    HttpRequest.get_port()
+    HttpRequest.get_full_path()
+    HttpRequest.get_full_path_info()
+    HttpRequest.build_absolute_uri(location=None)
+    HttpRequest.get_signed_cookie(key, default=RAISE_ERROE, salt='', max_age=None)
+    HttpRequest.is_secure()
+    HttpRequest.is_ajax()
+    HttpRequest.read()
+    HttpRequest.readline()
+    HttpRequest.readlines()
+    HttpRequest.__iter__()
+  
+  
+  QueryDict objects
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
